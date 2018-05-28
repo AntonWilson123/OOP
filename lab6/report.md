@@ -18,7 +18,7 @@
 Для вызова аллокатора должны быть переопредены операторы new и delete у классов-фигур.
 
 ### Фигура: квадрат,прямоугольник, трапеция.
-### Контейнер 1: очередь.
+### Контейнер 1: очередь. Контейнер 2: список.
 
 ### Описание
 Аллокатор памяти - часть программы (как прикладной, так и операционной системы), обрабатывающая запросы на выделение и освобождение оперативной памяти или запросы на включение заданной области памяти в адресное пространство процессора.
@@ -28,31 +28,77 @@
 Программисты должны учитывать последствия динамического выделения памяти и дважды обдумать использование функции malloc или оператора new. Легко убедить себя, что вы не делаете так уж много аллокаций, а значит большого значения это не имеет, но такой тип мышления распространяется лавиной по все команде и приводитк медленной смерти. Фрагментация и потери в производительности, связанные с использование динамической памяти, не будучи пресеченными в зародыше, могут иметь катастрофические трудноразрешаемые последствия в вашем дальнейшем цикле разработки. Проекты, где управление и распределение памяти не продумано надлежащий образом, часто страдают от случайных сбоев после длительной сессии из-за нехватки памяти и стоят сотни часов работы программистов, пыттающихся освободить память и реоргранизовать ее выделение.
 
 ### Консоль
-      tohess@tohess-VirtualBox:~/Лабораторные работы/2kurs/OOP/lab5$ ./lab5
-        Квадрат со стороной 1 создан
-        Allocated : 40 bytes
-        Queue item created!
-        Квадрат со стороной 2 создан
-        Allocated : 40 bytes
-        Queue item created!
-        Квадрат со стороной 999 создан
-        Allocated : 40 bytes
-        Queue item created!
-        Квадрат со стороной:1
+      tohess@tohess-VirtualBox:~/Лабораторные работы/2kurs/OOP/lab6$ ./lab6 
+      AllocationBlock: Memory init
+      AllocationBlock: Memory init
+      AllocationBlock: Memory init
+      AllocationBlock: Memory init
+      AllocationBlock: Allocate 1 of 10
+      a1 pointer value:1
+      AllocationBlock: Allocate 2 of 10
+      a2 pointer value:2
+      AllocationBlock: Allocate 3 of 10
+      a3 pointer value:3
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Allocate 2 of 10
+      a4 pointer value: 4
+      AllocationBlock: Allocate 3 of 10
+      a5 pointer value: 5
+      a1 pointer value:5
+      a2 pointer value:2
+      a3 pointer value:4
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Memory freed
+      Квадрат со стороной 1 создан
+      AllocationBlock: Allocate 1 of 100
+      Queue item created!
+      Квадрат со стороной 2 создан
+      AllocationBlock: Allocate 2 of 100
+      Queue item created!
+      Квадрат со стороной 3 создан
+      AllocationBlock: Allocate 3 of 100
+      Queue item created!
+      Квадрат со стороной 4 создан
+      AllocationBlock: Allocate 4 of 100
+      Queue item created!
+      Квадрат со стороной:1
 
-        Квадрат со стороной:2
+      Квадрат со стороной:2
 
-        Квадрат со стороной:999
+      Квадрат со стороной:3
 
-        Queue item deleted
-        Queue item deleted
-        Queue item deleted
-        Квадрат удален
-        Deleted
-        Квадрат удален
-        Deleted
-        Квадрат удален
-        Deleted
+      Квадрат со стороной:4
+
+      Первый в очереди:-------Квадрат со стороной:1
+
+
+      Queue item deleted
+      Квадрат удален
+      AllocationBlock: Deallocate block 
+      Первый в очереди:-------Квадрат со стороной:2
+
+
+      Queue item deleted
+      Квадрат удален
+      AllocationBlock: Deallocate block 
+      Первый в очереди:-------Квадрат со стороной:3
+
+
+      Queue item deleted
+      Квадрат удален
+      AllocationBlock: Deallocate block 
+      Первый в очереди:-------Квадрат со стороной:4
+
+
+      Queue item deleted
+      Квадрат удален
+      AllocationBlock: Deallocate block 
+      AllocationBlock: Memory freed
+      AllocationBlock: Memory freed
+      AllocationBlock: Memory freed
 
 ### Выводы
 
